@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block title %}Episode {{ this._id }}—{{ this.title }}{% endblock %}
+{% block body %}
+    <h3>Episode {{ this._id }}—{{ this.title }}</h3>
+    <p>{{ this.pub_datetime|dateformat('E, MMM d') }}</p>
+    {% set audio_fname = "brosaen-episode-" + this._id + ".mp3" %}
+    {% set audio_file = this.attachments.get(audio_fname) %}
+    <p>
+        <audio preload="none" controls="controls">
+            <source src="{{ audio_file|url }}" type="audio/mpeg"/>
+        </audio>
+    </p>
+    <p>
+        <a href="{{ audio_file|url }}">Direct Download</a> ({{ audio_file.size_mb }} MB)
+    </p>
+    <p>
+        {{ this.description }}
+    </p>
+    {% if this.extra_body %}
+        {{ this.extra_body }}
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block full_title %}Brosaen Detroit Pistons Podcast{% endblock %}
+{% block body %}
+    <p>We are Alex and Karl Rosaen. We are brothers. The brothers Rosaen. Brosaen.</p>
+    <h2>Pistons Podcast</h2>
+    <p>We have a podcast all about the Detroit Pistons.</p>
+    <div class="linkbar">
+        <a href="https://itunes.apple.com/us/podcast/brosaen-pistons-podcast/id879922658">iTunes</a>
+        <a href="/podcasts/pistons.xml">RSS</a>
+        <a target=_blank href="http://facebook.com/brosaen">Facebook</a>
+        <a target=_blank href="http://twitter.com/brosaenpistons">Twitter</a>
+    </div>
+    {% for episode in site.get('/podcasts/pistons').children %}
+        <h3>
+            <a href="{{ episode | url }}">
+                Episode {{ episode._id }}—{{ episode.title }}
+            </a>
+        </h3>
+        <p>
+            {{ episode.pub_datetime|dateformat('E, MMM d') }}—{{ episode.description }}
+        </p>
+        {% if loop.index == 1 %}
+            {% set audio_fname = "brosaen-episode-" + episode._id + ".mp3" %}
+            {% set audio_file = episode.attachments.get(audio_fname) %}
+            <p>
+                <audio preload="none" controls="controls">
+                    <source src="{{ audio_file|url }}" type="audio/mpeg"/>
+                </audio>
+            </p>
+        {% endif %}
+        <p>
+            <a href="{{ episode | url }}">Episode Details</a>
+        </p>
+    {% endfor %}
+{% endblock %}
