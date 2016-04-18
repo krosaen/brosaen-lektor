@@ -30,7 +30,7 @@
                 <title>{{ episode._id }}: {{ episode.title }}</title>
                 <link>http://brosaen.com{{ episode | url }}</link>
                 <guid>http://brosaen.com{{ episode | url }}</guid>
-                <pubDate>{{ episode.pub_datetime.strftime('%a, %d %B %Y %H:%M:%S %z') }}</pubDate>
+                <pubDate>{{ episode.pub_datetime.strftime('%a, %-d %B %Y %H:%M:%S %z') }}</pubDate>
                 <author>brosaen</author>
                 <description>{{ episode.description }}</description>
                 <enclosure url="http://media.blubrry.com/pistons/brosaen.com{{ audio_file|url }}" length="{{ audio_file.length }}" type="audio/mpeg"/>
