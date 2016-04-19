@@ -3,7 +3,10 @@
     <channel>
         <title>Brosaen Pistons Podcast</title>
         <link href="http://brosaen.com"/>
-        <pubDate>Sat, 16 April 2016 8:01:00 +0000</pubDate>
+        {% set latest_episode = site.get('/podcasts/pistons').children.first() %}
+        {% set latest_audio_fname = "brosaen-episode-" + latest_episode._id + ".mp3" %}
+        {% set latest_audio_file = latest_episode.attachments.get(audio_fname) %}
+        <pubDate>{{ latest_audio_file.pub_datetime.strftime('%a, %-d %B %Y %H:%M:%S %z') }}</pubDate>
         <description>
             A Detroit Pistons Podcast brought to you every sometimes by by long time fans and Michiganders Alex and Karl Rosaen.
         </description>
