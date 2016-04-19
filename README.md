@@ -1,6 +1,6 @@
 # brosaen-lektor
 
-Static website for brosaen.com built with [Lektor](https://www.getlektor.com/).
+Static website for [brosaen.com](http://brosaen.com) built with [Lektor](https://www.getlektor.com/).
 
 To run:
 
