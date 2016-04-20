@@ -17,7 +17,7 @@
         <itunes:summary>
             A Detroit Pistons Podcast brought to you every sometimes by long time fans and Michiganders Alex and Karl Rosaen.
         </itunes:summary>
-        <itunes:image href="http://brosaen.com/images/brosaen_1400_v1.jpg"/>
+        <itunes:image href="http://brosaen.com{{ '/static/brosaen_1400_v1.jpg' | asseturl }}"/>
         <itunes:keywords>sports, NBA, pistons</itunes:keywords>
         <itunes:explicit>no</itunes:explicit>
         <itunes:owner>
@@ -42,7 +42,7 @@
                 <itunes:subtitle>{{ episode.description }}</itunes:subtitle>
                 <itunes:summary>{{ episode.description }}</itunes:summary>
                 <itunes:keywords>{{ ', '.join(episode.feed_tags) }}</itunes:keywords>
-                <itunes:image href="http://brosaen.com/images/brosaen_1400_v1.jpg"/>
+                <itunes:image href="http://brosaen.com{{ '/static/brosaen_1400_v1.jpg' | asseturl }}"/>
             </item>
         {% endfor %}
     </channel>
