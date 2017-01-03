@@ -13,3 +13,13 @@ Note: the mp3 files are not in the repository so audio playback won't work. You 
 ```
 $ (cd content/podcasts/pistons/26; curl -O http://brosaen.com/podcasts/pistons/26/brosaen-episode-26.mp3)
 ```
+
+## running with docker
+
+If you wish to run with docker, you can build an image and run it like so:
+
+```
+$ docker build -t lektor lektor-dockerfile
+$ . start-lektor
+```
+
