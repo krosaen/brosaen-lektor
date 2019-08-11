@@ -16,10 +16,16 @@ $ (cd content/podcasts/pistons/26; curl -O http://brosaen.com/podcasts/pistons/2
 
 ## running with docker
 
-If you wish to run with docker, you can build an image and run it like so:
+If you wish to run with docker, you can build [an image](https://github.com/SoftInstigate/lektor-docker):
 
 ```
-$ docker build -t lektor lektor-dockerfile
-$ . start-lektor
+$ git clone https://github.com/SoftInstigate/lektor-docker.git
+$ docker build --build-arg RELEASE="3.1.3" -t lektor lektor-docker
+```
+
+and run it like so:
+
+```
+$ . start-lektor.sh
 ```
 
